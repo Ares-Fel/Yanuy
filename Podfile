@@ -8,5 +8,7 @@ target 'Yanuy' do
   # Pods for Yanuy
 
 pod 'Firebase/Core'
+pod 'Firebase/Auth'
+
 
 end
