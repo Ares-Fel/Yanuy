@@ -13,9 +13,12 @@
 		6854EF13229C43600049CB2E /* Yanuy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6854EF11229C43600049CB2E /* Yanuy.xcdatamodeld */; };
 		6854EF15229C43610049CB2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6854EF14229C43610049CB2E /* Assets.xcassets */; };
 		6854EF18229C43610049CB2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6854EF16229C43610049CB2E /* LaunchScreen.storyboard */; };
+		6854EF20229C470F0049CB2E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6854EF1F229C470F0049CB2E /* GoogleService-Info.plist */; };
+		E6C52F7B97CCD43D51056469 /* Pods_Yanuy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D253D3EAE04760C0FA0D063 /* Pods_Yanuy.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D253D3EAE04760C0FA0D063 /* Pods_Yanuy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Yanuy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6854EF07229C43600049CB2E /* Yanuy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yanuy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6854EF0A229C43600049CB2E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6854EF0C229C43600049CB2E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +27,9 @@
 		6854EF14229C43610049CB2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6854EF17229C43610049CB2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6854EF19229C43610049CB2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6854EF1F229C470F0049CB2E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7E43AEA1D06EC726417AF091 /* Pods-Yanuy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yanuy.release.xcconfig"; path = "Target Support Files/Pods-Yanuy/Pods-Yanuy.release.xcconfig"; sourceTree = "<group>"; };
+		A3C4B8714D1026692CFBF81E /* Pods-Yanuy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yanuy.debug.xcconfig"; path = "Target Support Files/Pods-Yanuy/Pods-Yanuy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +37,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6C52F7B97CCD43D51056469 /* Pods_Yanuy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4AB425D4D299B9F0A7AEE44E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A3C4B8714D1026692CFBF81E /* Pods-Yanuy.debug.xcconfig */,
+				7E43AEA1D06EC726417AF091 /* Pods-Yanuy.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		6854EEFE229C43600049CB2E = {
 			isa = PBXGroup;
 			children = (
 				6854EF09229C43600049CB2E /* Yanuy */,
 				6854EF08229C43600049CB2E /* Products */,
+				4AB425D4D299B9F0A7AEE44E /* Pods */,
+				D2F4EDEB310F58722B45B03F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +74,7 @@
 		6854EF09229C43600049CB2E /* Yanuy */ = {
 			isa = PBXGroup;
 			children = (
+				6854EF1F229C470F0049CB2E /* GoogleService-Info.plist */,
 				6854EF0A229C43600049CB2E /* AppDelegate.swift */,
 				6854EF0C229C43600049CB2E /* ViewController.swift */,
 				6854EF0E229C43600049CB2E /* Main.storyboard */,
@@ -67,6 +86,14 @@
 			path = Yanuy;
 			sourceTree = "<group>";
 		};
+		D2F4EDEB310F58722B45B03F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0D253D3EAE04760C0FA0D063 /* Pods_Yanuy.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +101,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6854EF1C229C43610049CB2E /* Build configuration list for PBXNativeTarget "Yanuy" */;
 			buildPhases = (
+				A6957C7B56F4911516FD4CB6 /* [CP] Check Pods Manifest.lock */,
 				6854EF03229C43600049CB2E /* Sources */,
 				6854EF04229C43600049CB2E /* Frameworks */,
 				6854EF05229C43600049CB2E /* Resources */,
+				847FA523416AD0D8F47538AB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -126,12 +155,62 @@
 			buildActionMask = 2147483647;
 			files = (
 				6854EF18229C43610049CB2E /* LaunchScreen.storyboard in Resources */,
+				6854EF20229C470F0049CB2E /* GoogleService-Info.plist in Resources */,
 				6854EF15229C43610049CB2E /* Assets.xcassets in Resources */,
 				6854EF10229C43600049CB2E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		847FA523416AD0D8F47538AB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Yanuy/Pods-Yanuy-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Yanuy/Pods-Yanuy-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A6957C7B56F4911516FD4CB6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Yanuy-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6854EF03229C43600049CB2E /* Sources */ = {
@@ -284,6 +363,7 @@
 		};
 		6854EF1D229C43610049CB2E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A3C4B8714D1026692CFBF81E /* Pods-Yanuy.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -302,6 +382,7 @@
 		};
 		6854EF1E229C43610049CB2E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7E43AEA1D06EC726417AF091 /* Pods-Yanuy.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

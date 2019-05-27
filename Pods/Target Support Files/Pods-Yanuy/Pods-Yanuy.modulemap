@@ -1,0 +1,6 @@
+framework module Pods_Yanuy {
+  umbrella header "Pods-Yanuy-umbrella.h"
+
+  export *
+  module * { export * }
+}
