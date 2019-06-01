@@ -14,6 +14,7 @@
 		6854EF15229C43610049CB2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6854EF14229C43610049CB2E /* Assets.xcassets */; };
 		6854EF18229C43610049CB2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6854EF16229C43610049CB2E /* LaunchScreen.storyboard */; };
 		6854EF20229C470F0049CB2E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6854EF1F229C470F0049CB2E /* GoogleService-Info.plist */; };
+		68C7B1A022A2C6CF000025B3 /* AdministradorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C7B19F22A2C6CF000025B3 /* AdministradorViewController.swift */; };
 		E6C52F7B97CCD43D51056469 /* Pods_Yanuy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D253D3EAE04760C0FA0D063 /* Pods_Yanuy.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 		6854EF17229C43610049CB2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6854EF19229C43610049CB2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6854EF1F229C470F0049CB2E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		68C7B19F22A2C6CF000025B3 /* AdministradorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdministradorViewController.swift; sourceTree = "<group>"; };
 		7E43AEA1D06EC726417AF091 /* Pods-Yanuy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yanuy.release.xcconfig"; path = "Target Support Files/Pods-Yanuy/Pods-Yanuy.release.xcconfig"; sourceTree = "<group>"; };
 		A3C4B8714D1026692CFBF81E /* Pods-Yanuy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yanuy.debug.xcconfig"; path = "Target Support Files/Pods-Yanuy/Pods-Yanuy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -82,6 +84,7 @@
 				6854EF16229C43610049CB2E /* LaunchScreen.storyboard */,
 				6854EF19229C43610049CB2E /* Info.plist */,
 				6854EF11229C43600049CB2E /* Yanuy.xcdatamodeld */,
+				68C7B19F22A2C6CF000025B3 /* AdministradorViewController.swift */,
 			);
 			path = Yanuy;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68C7B1A022A2C6CF000025B3 /* AdministradorViewController.swift in Sources */,
 				6854EF13229C43600049CB2E /* Yanuy.xcdatamodeld in Sources */,
 				6854EF0D229C43600049CB2E /* ViewController.swift in Sources */,
 				6854EF0B229C43600049CB2E /* AppDelegate.swift in Sources */,
