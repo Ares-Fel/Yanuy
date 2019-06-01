@@ -49,13 +49,6 @@
                                     <action selector="btnIngresar:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eaK-34-XmA"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cay-c1-u5e">
-                                <rect key="frame" x="129" y="405" width="117" height="30"/>
-                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Gaaa!">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -66,7 +59,6 @@
                             <constraint firstItem="epe-A2-AQ3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QEY-49-rYh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="epe-A2-AQ3" secondAttribute="trailing" constant="50" id="RmZ-dj-ydj"/>
                             <constraint firstItem="QoQ-PJ-lLw" firstAttribute="top" secondItem="epe-A2-AQ3" secondAttribute="bottom" constant="20" id="Wee-nX-oiM"/>
-                            <constraint firstItem="cay-c1-u5e" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WmO-RB-MIs"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Pjf-Ku-5Jp" secondAttribute="trailing" constant="50" id="Zs9-P3-JY7"/>
                             <constraint firstItem="1rc-Sf-PIv" firstAttribute="top" secondItem="Pjf-Ku-5Jp" secondAttribute="bottom" constant="50" id="fOC-gL-fcd"/>
                             <constraint firstItem="Rb6-cM-KZu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="90" id="lt3-gT-Ts2"/>
@@ -93,13 +85,6 @@
                     <view key="view" contentMode="scaleToFill" id="MVt-NY-8jQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b5u-tM-txP">
-                                <rect key="frame" x="164" y="144" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="bxv-Qd-MyS"/>
                     </view>
