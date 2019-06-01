@@ -8,13 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		6854EF0B229C43600049CB2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6854EF0A229C43600049CB2E /* AppDelegate.swift */; };
-		6854EF0D229C43600049CB2E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6854EF0C229C43600049CB2E /* ViewController.swift */; };
 		6854EF10229C43600049CB2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6854EF0E229C43600049CB2E /* Main.storyboard */; };
 		6854EF13229C43600049CB2E /* Yanuy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6854EF11229C43600049CB2E /* Yanuy.xcdatamodeld */; };
 		6854EF15229C43610049CB2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6854EF14229C43610049CB2E /* Assets.xcassets */; };
 		6854EF18229C43610049CB2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6854EF16229C43610049CB2E /* LaunchScreen.storyboard */; };
 		6854EF20229C470F0049CB2E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6854EF1F229C470F0049CB2E /* GoogleService-Info.plist */; };
-		68C7B1A022A2C6CF000025B3 /* AdministradorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C7B19F22A2C6CF000025B3 /* AdministradorViewController.swift */; };
+		CD4BE06922A2F19B00C963A4 /* VCEditarUsuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4BE06822A2F19B00C963A4 /* VCEditarUsuario.swift */; };
+		CD4BE06E22A2F1A900C963A4 /* VCInicioSesion.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4BE06A22A2F1A900C963A4 /* VCInicioSesion.swift */; };
+		CD4BE06F22A2F1A900C963A4 /* VCInicioAdministrador.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4BE06B22A2F1A900C963A4 /* VCInicioAdministrador.swift */; };
+		CD4BE07022A2F1A900C963A4 /* VCListaUsuarios.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4BE06C22A2F1A900C963A4 /* VCListaUsuarios.swift */; };
+		CD4BE07122A2F1A900C963A4 /* VCInicioMozo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4BE06D22A2F1A900C963A4 /* VCInicioMozo.swift */; };
+		CD4BE07322A2F6CA00C963A4 /* VCNuevoPedido.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4BE07222A2F6CA00C963A4 /* VCNuevoPedido.swift */; };
 		E6C52F7B97CCD43D51056469 /* Pods_Yanuy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D253D3EAE04760C0FA0D063 /* Pods_Yanuy.framework */; };
 /* End PBXBuildFile section */
 
@@ -22,16 +26,20 @@
 		0D253D3EAE04760C0FA0D063 /* Pods_Yanuy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Yanuy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6854EF07229C43600049CB2E /* Yanuy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yanuy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6854EF0A229C43600049CB2E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6854EF0C229C43600049CB2E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		6854EF0F229C43600049CB2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6854EF12229C43600049CB2E /* Yanuy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Yanuy.xcdatamodel; sourceTree = "<group>"; };
 		6854EF14229C43610049CB2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6854EF17229C43610049CB2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6854EF19229C43610049CB2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6854EF1F229C470F0049CB2E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		68C7B19F22A2C6CF000025B3 /* AdministradorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdministradorViewController.swift; sourceTree = "<group>"; };
 		7E43AEA1D06EC726417AF091 /* Pods-Yanuy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yanuy.release.xcconfig"; path = "Target Support Files/Pods-Yanuy/Pods-Yanuy.release.xcconfig"; sourceTree = "<group>"; };
 		A3C4B8714D1026692CFBF81E /* Pods-Yanuy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yanuy.debug.xcconfig"; path = "Target Support Files/Pods-Yanuy/Pods-Yanuy.debug.xcconfig"; sourceTree = "<group>"; };
+		CD4BE06822A2F19B00C963A4 /* VCEditarUsuario.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCEditarUsuario.swift; sourceTree = "<group>"; };
+		CD4BE06A22A2F1A900C963A4 /* VCInicioSesion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCInicioSesion.swift; sourceTree = "<group>"; };
+		CD4BE06B22A2F1A900C963A4 /* VCInicioAdministrador.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCInicioAdministrador.swift; sourceTree = "<group>"; };
+		CD4BE06C22A2F1A900C963A4 /* VCListaUsuarios.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCListaUsuarios.swift; sourceTree = "<group>"; };
+		CD4BE06D22A2F1A900C963A4 /* VCInicioMozo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCInicioMozo.swift; sourceTree = "<group>"; };
+		CD4BE07222A2F6CA00C963A4 /* VCNuevoPedido.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCNuevoPedido.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,17 +84,29 @@
 		6854EF09229C43600049CB2E /* Yanuy */ = {
 			isa = PBXGroup;
 			children = (
+				CD4BE06722A2F18800C963A4 /* View Controllers */,
 				6854EF1F229C470F0049CB2E /* GoogleService-Info.plist */,
 				6854EF0A229C43600049CB2E /* AppDelegate.swift */,
-				6854EF0C229C43600049CB2E /* ViewController.swift */,
 				6854EF0E229C43600049CB2E /* Main.storyboard */,
 				6854EF14229C43610049CB2E /* Assets.xcassets */,
 				6854EF16229C43610049CB2E /* LaunchScreen.storyboard */,
 				6854EF19229C43610049CB2E /* Info.plist */,
 				6854EF11229C43600049CB2E /* Yanuy.xcdatamodeld */,
-				68C7B19F22A2C6CF000025B3 /* AdministradorViewController.swift */,
 			);
 			path = Yanuy;
+			sourceTree = "<group>";
+		};
+		CD4BE06722A2F18800C963A4 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CD4BE06B22A2F1A900C963A4 /* VCInicioAdministrador.swift */,
+				CD4BE06D22A2F1A900C963A4 /* VCInicioMozo.swift */,
+				CD4BE06A22A2F1A900C963A4 /* VCInicioSesion.swift */,
+				CD4BE06C22A2F1A900C963A4 /* VCListaUsuarios.swift */,
+				CD4BE06822A2F19B00C963A4 /* VCEditarUsuario.swift */,
+				CD4BE07222A2F6CA00C963A4 /* VCNuevoPedido.swift */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 		D2F4EDEB310F58722B45B03F /* Frameworks */ = {
@@ -222,9 +242,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				68C7B1A022A2C6CF000025B3 /* AdministradorViewController.swift in Sources */,
+				CD4BE07022A2F1A900C963A4 /* VCListaUsuarios.swift in Sources */,
+				CD4BE07322A2F6CA00C963A4 /* VCNuevoPedido.swift in Sources */,
 				6854EF13229C43600049CB2E /* Yanuy.xcdatamodeld in Sources */,
-				6854EF0D229C43600049CB2E /* ViewController.swift in Sources */,
+				CD4BE06922A2F19B00C963A4 /* VCEditarUsuario.swift in Sources */,
+				CD4BE07122A2F1A900C963A4 /* VCInicioMozo.swift in Sources */,
+				CD4BE06E22A2F1A900C963A4 /* VCInicioSesion.swift in Sources */,
+				CD4BE06F22A2F1A900C963A4 /* VCInicioAdministrador.swift in Sources */,
 				6854EF0B229C43600049CB2E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
