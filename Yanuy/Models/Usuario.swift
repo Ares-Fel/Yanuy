@@ -3,8 +3,9 @@ import Foundation
 
 class Usuario {
     var nombre = ""
-    var email = ""
+    var correo = ""
     var tipo = ""
-    var imagenURL = ""
-    var imagenID = ""
+    var fotoURL = ""
+    var fotoID = ""
+    var uid = ""
 }

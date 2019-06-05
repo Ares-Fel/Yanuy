@@ -1,5 +1,6 @@
 
 import UIKit
+import SDWebImage
 
 class VCVerUsuario: UIViewController {
 
@@ -10,10 +11,18 @@ class VCVerUsuario: UIViewController {
     @IBOutlet weak var btnGuardar: UIButton!
     @IBOutlet weak var btnCancelar: UIButton!
     
+    var usuario = Usuario()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         btnGuardar.isHidden = true
         btnCancelar.isHidden = true
+        
+        txtNombre.text! = usuario.nombre
+        txtTipo.text! = usuario.tipo
+        txtCorreo.text! = usuario.correo
+        imagenPerfil.sd_setImage(with: URL(string: usuario.fotoURL), completed: nil)
+        
     }
 
     @IBAction func btnEliminarTapped(_ sender: Any) {

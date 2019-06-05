@@ -1,5 +1,7 @@
 
 import UIKit
+import Firebase
+import SDWebImage
 
 class tblUsuariosCelda:UITableViewCell {
     
@@ -13,29 +15,59 @@ class VCListaUsuarios: UIViewController, UITableViewDataSource, UITableViewDeleg
     
     @IBOutlet weak var tblUsuarios: UITableView!
     
-    //var usuarios = Usuario()
-    
+    var usuarios:[Usuario] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tblUsuarios.delegate = self
         tblUsuarios.dataSource = self
        
+        Database.database().reference().child("usuarios").observe(DataEventType.childAdded, with: { (snapshot) in
+            print("AQUI: \(snapshot)")
+            
+            let usuario = Usuario()
+            usuario.correo = (snapshot.value as! NSDictionary)["correo"] as! String
+            usuario.nombre = (snapshot.value as! NSDictionary)["nombre"] as! String
+            usuario.tipo = (snapshot.value as! NSDictionary)["tipo"] as! String
+            usuario.fotoURL = (snapshot.value as! NSDictionary)["fotoURL"] as! String
+            usuario.fotoID = (snapshot.value as! NSDictionary)["fotoID"] as! String
+            usuario.uid = snapshot.key
+            
+            self.usuarios.append(usuario)
+            self.tblUsuarios.reloadData()
+            
+            //self.imagenPerfil.sd_setImage(with: URL(string: usuario.fotoURL), completed: nil)
+        })
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return usuarios.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let celda = tblUsuarios.dequeueReusableCell(withIdentifier: "usuarios", for: indexPath) as! tblUsuariosCelda
-        celda.lblNombre?.text = "Willy Baldeón"
-        celda.lblTipo?.text = "Tipo: Mozo"
-        celda.lblEmail?.text = "email: willy.baldeon@yanuy.com"
+        let usuario = usuarios[indexPath.row]
+
+        celda.lblNombre?.text = usuario.nombre
+        celda.lblTipo?.text = usuario.tipo
+        celda.lblEmail?.text = usuario.correo
+        celda.imagenPerfil?.sd_setImage(with: URL(string: usuario.fotoURL), completed: nil)
+        celda.imagenPerfil.backgroundColor = UIColor.clear
+        
         return celda
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "verUsuarioSegue", sender: nil)
+        performSegue(withIdentifier: "verUsuarioSegue", sender:usuarios[indexPath.row])
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "verUsuarioSegue" {
+            let siguienteVC = segue.destination as! VCVerUsuario
+            siguienteVC.usuario = sender as! Usuario
+            
+        }
     }
 
 }
