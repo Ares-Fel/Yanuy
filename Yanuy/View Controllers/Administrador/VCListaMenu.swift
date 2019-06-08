@@ -77,6 +77,8 @@ class VCListaMenu: UIViewController, UITableViewDelegate, UITableViewDataSource 
 
         let celda = tblMenu.dequeueReusableCell(withIdentifier: "item", for: indexPath) as! tblMenuCelda
         celda.imagen?.sd_setImage(with: URL(string: items[indexPath.section][indexPath.row].imagenURL), completed: nil)
+        celda.imagen.layer.masksToBounds = true
+        celda.imagen.layer.cornerRadius = 5
         celda.lblNombre?.text = items[indexPath.section][indexPath.row].nombre
         celda.lblTipo?.text = items[indexPath.section][indexPath.row].tipo
         celda.lblPrecio?.text = items[indexPath.section][indexPath.row].precio
