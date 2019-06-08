@@ -36,6 +36,10 @@ class VCListaMenu: UIViewController, UITableViewDelegate, UITableViewDataSource 
         tblMenu.delegate = self
         tblMenu.dataSource = self
         
+        self.items[0].removeAll()
+        self.items[1].removeAll()
+        self.items[2].removeAll()
+        
         Database.database().reference().child("items").observe(DataEventType.childAdded, with: { (snapshot) in
             print("AQUI: \(snapshot)")
             
