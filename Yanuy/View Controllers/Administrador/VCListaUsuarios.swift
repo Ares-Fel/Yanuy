@@ -38,6 +38,17 @@ class VCListaUsuarios: UIViewController, UITableViewDataSource, UITableViewDeleg
             
             //self.imagenPerfil.sd_setImage(with: URL(string: usuario.fotoURL), completed: nil)
         })
+        
+        Database.database().reference().child("usuarios").observe(DataEventType.childRemoved, with: {(snapshot) in
+            var iterator = 0
+            for usuario in self.usuarios{
+                if usuario.uid == snapshot.key{
+                    self.usuarios.remove(at: iterator)
+                }
+                iterator += 1
+            }
+            self.tblUsuarios.reloadData()
+        })
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
