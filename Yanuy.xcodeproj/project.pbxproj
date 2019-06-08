@@ -26,6 +26,7 @@
 		CD8DDEDD22A56F3C0056123E /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8DDEDC22A56F3C0056123E /* Usuario.swift */; };
 		CD8DDEE322A57F600056123E /* VCListaItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8DDEE222A57F600056123E /* VCListaItems.swift */; };
 		CD8DDEE522A580540056123E /* VCVerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8DDEE422A580540056123E /* VCVerItem.swift */; };
+		CDC3388C22AC3D6000C22670 /* Pedido.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC3388B22AC3D6000C22670 /* Pedido.swift */; };
 		E6C52F7B97CCD43D51056469 /* Pods_Yanuy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D253D3EAE04760C0FA0D063 /* Pods_Yanuy.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,7 @@
 		CD8DDEDC22A56F3C0056123E /* Usuario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Usuario.swift; sourceTree = "<group>"; };
 		CD8DDEE222A57F600056123E /* VCListaItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCListaItems.swift; sourceTree = "<group>"; };
 		CD8DDEE422A580540056123E /* VCVerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCVerItem.swift; sourceTree = "<group>"; };
+		CDC3388B22AC3D6000C22670 /* Pedido.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pedido.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 			children = (
 				CD8DDEDC22A56F3C0056123E /* Usuario.swift */,
 				CD63A6DB22A736A500EE1044 /* Item.swift */,
+				CDC3388B22AC3D6000C22670 /* Pedido.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 				CD4BE06922A2F19B00C963A4 /* VCVerUsuario.swift in Sources */,
 				CD4BE07122A2F1A900C963A4 /* VCInicioMozo.swift in Sources */,
 				CD8DDEDD22A56F3C0056123E /* Usuario.swift in Sources */,
+				CDC3388C22AC3D6000C22670 /* Pedido.swift in Sources */,
 				CD4BE06E22A2F1A900C963A4 /* VCInicioSesion.swift in Sources */,
 				CD4BE06F22A2F1A900C963A4 /* VCInicioAdministrador.swift in Sources */,
 				6854EF0B229C43600049CB2E /* AppDelegate.swift in Sources */,

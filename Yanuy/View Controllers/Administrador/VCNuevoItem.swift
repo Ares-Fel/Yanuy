@@ -13,6 +13,8 @@ class VCNuevoItem: UIViewController, UIImagePickerControllerDelegate, UINavigati
     
     var imagePicker = UIImagePickerController()
     var imagenID = NSUUID().uuidString
+    
+    let item = Item()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +56,21 @@ class VCNuevoItem: UIViewController, UIImagePickerControllerDelegate, UINavigati
                             }))
                             
                             self.present(alerta, animated: true, completion: nil)
-                            let datos = ["nombre" : self.txtNombre.text!, "tipo" : self.txtTipo.text!, "precio" : self.txtPrecio.text!, "stock" : self.txtStock.text!, "imagenURL" : imagenURL?.absoluteString, "imagenID" : self.imagenID]
+                            
+                            self.item.nombre = self.txtNombre.text!
+                            self.item.tipo = self.txtTipo.text!
+                            self.item.precio = self.txtPrecio.text!
+                            self.item.stock = self.txtStock.text!
+                            self.item.imagenURL = (imagenURL?.absoluteString)!
+                            self.item.imagenID = self.imagenID
+                            
+                            let datos = ["nombre" : self.item.nombre,
+                                         "tipo" : self.item.tipo,
+                                         "precio" : self.item.precio,
+                                         "stock" : self.item.stock,
+                                         "imagenURL" : self.item.imagenURL,
+                                         "imagenID" : self.item.imagenID,
+                                         "menu" : self.item.menu] as [String : Any]
                             Database.database().reference().child("items").childByAutoId().setValue(datos)
                         }
                     })

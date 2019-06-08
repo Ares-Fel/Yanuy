@@ -61,6 +61,8 @@ class VCListaItems: UIViewController, UITableViewDataSource, UITableViewDelegate
         celda.lblStock?.text = item.stock
         celda.imagenCarta?.sd_setImage(with: URL(string: item.imagenURL), completed: nil)
         celda.imagenCarta.backgroundColor = UIColor.clear
+        celda.imagenCarta.layer.masksToBounds = true
+        celda.imagenCarta.layer.cornerRadius = 5
         
         return celda
         
