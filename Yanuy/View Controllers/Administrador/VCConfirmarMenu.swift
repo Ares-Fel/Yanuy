@@ -1,30 +1,38 @@
-//
-//  VCConfirmarMenu.swift
-//  Yanuy
-//
-//  Created by Tecsup on 8/06/19.
-//  Copyright © 2019 OscarMolleapaza. All rights reserved.
-//
 
 import UIKit
 
-class VCConfirmarMenu: UIViewController {
+class VCConfirmarMenu: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var tblConfirmar: UITableView!
+    
+    var items = [
+        [Item(),Item(),Item()],
+        [Item()],
+        [Item()]
+    ]
+    
     override func viewDidLoad() {
+        
+        tblConfirmar.delegate = self
+        tblConfirmar.dataSource = self
         super.viewDidLoad()
+        
+        for i in items{
+            for j in i{
+                print(j.nombre)
+            }
+        }
+        
+        print(items[1][1].nombre)
 
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
     }
-    */
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
 
 }

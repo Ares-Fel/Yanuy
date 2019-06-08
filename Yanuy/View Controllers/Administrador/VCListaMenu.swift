@@ -10,6 +10,7 @@ class tblMenuCelda:UITableViewCell{
     @IBOutlet weak var lblTipo: UILabel!
     @IBOutlet weak var lblPrecio: UILabel!
     @IBOutlet weak var lblStock: UILabel!
+    @IBOutlet weak var marca: UIImageView!
     
 }
 
@@ -65,6 +66,21 @@ class VCListaMenu: UIViewController, UITableViewDelegate, UITableViewDataSource 
         })
     }
     
+    @IBAction func btnConfirmarMenu(_ sender: Any) {
+        performSegue(withIdentifier: "confirmarMenuSegue", sender: items)
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if items[indexPath.section][indexPath.row].menu == false{
+            items[indexPath.section][indexPath.row].menu = true
+        } else {
+            items[indexPath.section][indexPath.row].menu = false
+        }
+        
+        tblMenu.reloadData()
+
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return secciones.count
     }
@@ -86,7 +102,26 @@ class VCListaMenu: UIViewController, UITableViewDelegate, UITableViewDataSource 
         celda.lblNombre?.text = items[indexPath.section][indexPath.row].nombre
         celda.lblTipo?.text = items[indexPath.section][indexPath.row].tipo
         celda.lblPrecio?.text = items[indexPath.section][indexPath.row].precio
+        
+        if items[indexPath.section][indexPath.row].menu == false{
+            celda.marca.image = UIImage(named:"unchecked")
+        } else {
+            celda.marca.image = UIImage(named:"checked")
+        }
+        
         return celda
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.tintColor = UIColor(red:0.22, green:0.56, blue:0.32, alpha:1.0)
+        
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.textColor = UIColor.white
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let siguienteVC = segue.destination as! VCConfirmarMenu
+        siguienteVC.items = sender as! [[Item]]
     }
     
 }

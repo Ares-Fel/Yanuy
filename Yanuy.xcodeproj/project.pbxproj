@@ -14,6 +14,7 @@
 		6854EF18229C43610049CB2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6854EF16229C43610049CB2E /* LaunchScreen.storyboard */; };
 		6854EF20229C470F0049CB2E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6854EF1F229C470F0049CB2E /* GoogleService-Info.plist */; };
 		CD1EF62122AC24D5000B76F9 /* VCListaMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1EF62022AC24D5000B76F9 /* VCListaMenu.swift */; };
+		CD1EF62522AC5747000B76F9 /* VCConfirmarMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1EF62422AC5747000B76F9 /* VCConfirmarMenu.swift */; };
 		CD4BE06922A2F19B00C963A4 /* VCVerUsuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4BE06822A2F19B00C963A4 /* VCVerUsuario.swift */; };
 		CD4BE06E22A2F1A900C963A4 /* VCInicioSesion.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4BE06A22A2F1A900C963A4 /* VCInicioSesion.swift */; };
 		CD4BE06F22A2F1A900C963A4 /* VCInicioAdministrador.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4BE06B22A2F1A900C963A4 /* VCInicioAdministrador.swift */; };
@@ -43,6 +44,7 @@
 		7E43AEA1D06EC726417AF091 /* Pods-Yanuy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yanuy.release.xcconfig"; path = "Target Support Files/Pods-Yanuy/Pods-Yanuy.release.xcconfig"; sourceTree = "<group>"; };
 		A3C4B8714D1026692CFBF81E /* Pods-Yanuy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yanuy.debug.xcconfig"; path = "Target Support Files/Pods-Yanuy/Pods-Yanuy.debug.xcconfig"; sourceTree = "<group>"; };
 		CD1EF62022AC24D5000B76F9 /* VCListaMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCListaMenu.swift; sourceTree = "<group>"; };
+		CD1EF62422AC5747000B76F9 /* VCConfirmarMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCConfirmarMenu.swift; sourceTree = "<group>"; };
 		CD4BE06822A2F19B00C963A4 /* VCVerUsuario.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCVerUsuario.swift; sourceTree = "<group>"; };
 		CD4BE06A22A2F1A900C963A4 /* VCInicioSesion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCInicioSesion.swift; sourceTree = "<group>"; };
 		CD4BE06B22A2F1A900C963A4 /* VCInicioAdministrador.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCInicioAdministrador.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				CD4BE06C22A2F1A900C963A4 /* VCListaUsuarios.swift */,
 				CD4BE06B22A2F1A900C963A4 /* VCInicioAdministrador.swift */,
 				CD1EF62022AC24D5000B76F9 /* VCListaMenu.swift */,
+				CD1EF62422AC5747000B76F9 /* VCConfirmarMenu.swift */,
 			);
 			path = Administrador;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD1EF62522AC5747000B76F9 /* VCConfirmarMenu.swift in Sources */,
 				CD8DDEE522A580540056123E /* VCVerItem.swift in Sources */,
 				CD4BE07022A2F1A900C963A4 /* VCListaUsuarios.swift in Sources */,
 				CD4BE07322A2F6CA00C963A4 /* VCNuevoPedido.swift in Sources */,
