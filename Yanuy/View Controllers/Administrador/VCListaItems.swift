@@ -34,6 +34,7 @@ class VCListaItems: UIViewController, UITableViewDataSource, UITableViewDelegate
             item.stock = (snapshot.value as! NSDictionary)["stock"] as! String
             item.imagenURL = (snapshot.value as! NSDictionary)["imagenURL"] as! String
             item.imagenID = (snapshot.value as! NSDictionary)["imagenID"] as! String
+            item.menu = (snapshot.value as! NSDictionary)["menu"] as! Bool
             item.id = snapshot.key
             
             self.items.append(item)
