@@ -44,6 +44,10 @@ class VCVerItem: UIViewController {
         txtTipo.isEnabled = false
         txtStock.isEnabled = false
         txtPrecio.isEnabled = false
+        
+        txtNombre.text! = usuario.nombre
+        txtTipo.text! = usuario.tipo
+        txtCorreo.text! = usuario.correo
     }
     
 }
