@@ -2,7 +2,7 @@
 import UIKit
 import Firebase
 
-class VCCrearNuevoUsuario: UIViewController {
+class VCNuevoUsuario: UIViewController {
 
     @IBOutlet weak var imagenPerfil: UIImageView!
     @IBOutlet weak var txtContraseña1: UITextField!

@@ -14,16 +14,13 @@ class tblMenuCelda:UITableViewCell{
     
 }
 
-class VCListaMenu: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class VCListaMenu: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating, UISearchBarDelegate {
     
     @IBOutlet weak var tblMenu: UITableView!
     var secciones = ["Entradas", "Fondos", "Postres"]
     
-    /*var items = [
-        ["Salpicón", "Caldo Blanco", "Soltero de Queso"],
-        ["Arroz con Pato", "Ají de Gallina", "Lomo Saltado", "Hígado Frito", "Pescado Frito"],
-        ["Torta de Chocolate","Flan","Helado de Fresa"]
-    ]*/
+    var textoBusqueda = NSString() //Texto de Búsqueda
+    var searchController:UISearchController! //Barra de Búsqueda
     
     var items = [
         [Item()],
@@ -36,6 +33,16 @@ class VCListaMenu: UIViewController, UITableViewDelegate, UITableViewDataSource 
         
         tblMenu.delegate = self
         tblMenu.dataSource = self
+        
+        searchController = UISearchController(searchResultsController: nil)
+        tblMenu.tableHeaderView = searchController.searchBar //Agregamos la barra en la cabecera
+        
+        //barra de búsqueda
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Buscar..."
+        searchController.searchBar.tintColor = UIColor.gray
+        searchController.searchBar.barTintColor = UIColor(red:1.00, green:0.56, blue:0.32, alpha:1.0)
         
         self.items[0].removeAll()
         self.items[1].removeAll()
@@ -62,7 +69,6 @@ class VCListaMenu: UIViewController, UITableViewDelegate, UITableViewDataSource 
                 self.items[2].append(item)
             }
             self.tblMenu.reloadData()
-            //self.imagenPerfil.sd_setImage(with: URL(string: usuario.fotoURL), completed: nil)
         })
     }
     
@@ -70,11 +76,23 @@ class VCListaMenu: UIViewController, UITableViewDelegate, UITableViewDataSource 
         performSegue(withIdentifier: "confirmarMenuSegue", sender: items)
     }
     
+    func updateSearchResults(for searchController: UISearchController) {
+        print("Text \(searchController.searchBar.text!)")
+        self.textoBusqueda = searchController.searchBar.text! as NSString
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if items[indexPath.section][indexPath.row].menu == false{
-            items[indexPath.section][indexPath.row].menu = true
+        
+        let item = items[indexPath.section][indexPath.row]
+
+        if item.menu == false{
+            item.menu = true
+            let ref = Database.database().reference().child("items").child(item.id)
+            ref.updateChildValues(["menu" : true])
         } else {
-            items[indexPath.section][indexPath.row].menu = false
+            item.menu = false
+            let ref = Database.database().reference().child("items").child(item.id)
+            ref.updateChildValues(["menu" : false])
         }
         
         tblMenu.reloadData()
@@ -94,16 +112,18 @@ class VCListaMenu: UIViewController, UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let item = items[indexPath.section][indexPath.row]
 
         let celda = tblMenu.dequeueReusableCell(withIdentifier: "item", for: indexPath) as! tblMenuCelda
-        celda.imagen?.sd_setImage(with: URL(string: items[indexPath.section][indexPath.row].imagenURL), completed: nil)
+        celda.imagen?.sd_setImage(with: URL(string: item.imagenURL), completed: nil)
         celda.imagen.layer.masksToBounds = true
         celda.imagen.layer.cornerRadius = 5
-        celda.lblNombre?.text = items[indexPath.section][indexPath.row].nombre
-        celda.lblTipo?.text = items[indexPath.section][indexPath.row].tipo
-        celda.lblPrecio?.text = items[indexPath.section][indexPath.row].precio
+        celda.lblNombre?.text = item.nombre
+        celda.lblTipo?.text = item.tipo
+        celda.lblPrecio?.text = item.precio
         
-        if items[indexPath.section][indexPath.row].menu == false{
+        if item.menu == false{
             celda.marca.image = UIImage(named:"unchecked")
         } else {
             celda.marca.image = UIImage(named:"checked")

@@ -21,7 +21,7 @@
 		CD4BE07022A2F1A900C963A4 /* VCListaUsuarios.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4BE06C22A2F1A900C963A4 /* VCListaUsuarios.swift */; };
 		CD4BE07122A2F1A900C963A4 /* VCInicioMozo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4BE06D22A2F1A900C963A4 /* VCInicioMozo.swift */; };
 		CD4BE07322A2F6CA00C963A4 /* VCNuevoPedido.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4BE07222A2F6CA00C963A4 /* VCNuevoPedido.swift */; };
-		CD63A6D822A7120700EE1044 /* VCCrearNuevoUsuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD63A6D722A7120700EE1044 /* VCCrearNuevoUsuario.swift */; };
+		CD63A6D822A7120700EE1044 /* VCNuevoUsuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD63A6D722A7120700EE1044 /* VCNuevoUsuario.swift */; };
 		CD63A6DA22A72F2100EE1044 /* VCNuevoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD63A6D922A72F2100EE1044 /* VCNuevoItem.swift */; };
 		CD63A6DC22A736A500EE1044 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD63A6DB22A736A500EE1044 /* Item.swift */; };
 		CD8DDEDD22A56F3C0056123E /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8DDEDC22A56F3C0056123E /* Usuario.swift */; };
@@ -51,7 +51,7 @@
 		CD4BE06C22A2F1A900C963A4 /* VCListaUsuarios.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCListaUsuarios.swift; sourceTree = "<group>"; };
 		CD4BE06D22A2F1A900C963A4 /* VCInicioMozo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCInicioMozo.swift; sourceTree = "<group>"; };
 		CD4BE07222A2F6CA00C963A4 /* VCNuevoPedido.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCNuevoPedido.swift; sourceTree = "<group>"; };
-		CD63A6D722A7120700EE1044 /* VCCrearNuevoUsuario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCCrearNuevoUsuario.swift; sourceTree = "<group>"; };
+		CD63A6D722A7120700EE1044 /* VCNuevoUsuario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCNuevoUsuario.swift; sourceTree = "<group>"; };
 		CD63A6D922A72F2100EE1044 /* VCNuevoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCNuevoItem.swift; sourceTree = "<group>"; };
 		CD63A6DB22A736A500EE1044 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		CD8DDEDC22A56F3C0056123E /* Usuario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Usuario.swift; sourceTree = "<group>"; };
@@ -119,7 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				CD63A6D922A72F2100EE1044 /* VCNuevoItem.swift */,
-				CD63A6D722A7120700EE1044 /* VCCrearNuevoUsuario.swift */,
+				CD63A6D722A7120700EE1044 /* VCNuevoUsuario.swift */,
 				CD8DDEE422A580540056123E /* VCVerItem.swift */,
 				CD8DDEE222A57F600056123E /* VCListaItems.swift */,
 				CD4BE06822A2F19B00C963A4 /* VCVerUsuario.swift */,
@@ -301,7 +301,7 @@
 				CD8DDEE522A580540056123E /* VCVerItem.swift in Sources */,
 				CD4BE07022A2F1A900C963A4 /* VCListaUsuarios.swift in Sources */,
 				CD4BE07322A2F6CA00C963A4 /* VCNuevoPedido.swift in Sources */,
-				CD63A6D822A7120700EE1044 /* VCCrearNuevoUsuario.swift in Sources */,
+				CD63A6D822A7120700EE1044 /* VCNuevoUsuario.swift in Sources */,
 				CD63A6DC22A736A500EE1044 /* Item.swift in Sources */,
 				CD8DDEE322A57F600056123E /* VCListaItems.swift in Sources */,
 				CD1EF62122AC24D5000B76F9 /* VCListaMenu.swift in Sources */,

@@ -66,7 +66,7 @@ class VCVerUsuario: UIViewController {
         print("hola ==>>> \(ref)")
         ref.updateChildValues(datos)
         
-        let alerta = UIAlertController(title: "¡HECHO!", message: "El usuario se modificó exitosamente.", preferredStyle: .alert)
+        let alerta = UIAlertController(title: "¡HECHO!", message: "Los datos del usuario se modificaron exitosamente.", preferredStyle: .alert)
         
         alerta.addAction(UIAlertAction(title: "Ok", style: .default, handler: {(UIAlertAction) in
             self.navigationController?.popViewController(animated: true)

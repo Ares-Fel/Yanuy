@@ -24,24 +24,10 @@ class VCListaItems: UIViewController, UITableViewDataSource, UITableViewDelegate
         tblCarta.delegate = self
         tblCarta.dataSource = self
 
-        Database.database().reference().child("items").observe(DataEventType.childAdded, with: { (snapshot) in
-            print("AQUI: \(snapshot)")
-            
-            let item = Item()
-            item.nombre = (snapshot.value as! NSDictionary)["nombre"] as! String
-            item.tipo = (snapshot.value as! NSDictionary)["tipo"] as! String
-            item.precio = (snapshot.value as! NSDictionary)["precio"] as! String
-            item.stock = (snapshot.value as! NSDictionary)["stock"] as! String
-            item.imagenURL = (snapshot.value as! NSDictionary)["imagenURL"] as! String
-            item.imagenID = (snapshot.value as! NSDictionary)["imagenID"] as! String
-            item.menu = (snapshot.value as! NSDictionary)["menu"] as! Bool
-            item.id = snapshot.key
-            
-            self.items.append(item)
-            self.tblCarta.reloadData()
-            
-            //self.imagenPerfil.sd_setImage(with: URL(string: usuario.fotoURL), completed: nil)
-        })
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        cargarItems()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -80,5 +66,23 @@ class VCListaItems: UIViewController, UITableViewDataSource, UITableViewDelegate
         }
     }
     
+    func cargarItems() {
+        Database.database().reference().child("items").observe(DataEventType.childAdded, with: { (snapshot) in
+            print("AQUI: \(snapshot)")
+            
+            let item = Item()
+            item.nombre = (snapshot.value as! NSDictionary)["nombre"] as! String
+            item.tipo = (snapshot.value as! NSDictionary)["tipo"] as! String
+            item.precio = (snapshot.value as! NSDictionary)["precio"] as! String
+            item.stock = (snapshot.value as! NSDictionary)["stock"] as! String
+            item.imagenURL = (snapshot.value as! NSDictionary)["imagenURL"] as! String
+            item.imagenID = (snapshot.value as! NSDictionary)["imagenID"] as! String
+            item.menu = (snapshot.value as! NSDictionary)["menu"] as! Bool
+            item.id = snapshot.key
+            
+            self.items.append(item)
+            self.tblCarta.reloadData()
+        })
+    }
 
 }

@@ -46,6 +46,8 @@ class VCVerItem: UIViewController, UIImagePickerControllerDelegate, UINavigation
         
         let alerta = UIAlertController(title: "¡Atención!", message: "¿Realmente desea elminar este item?", preferredStyle: .alert)
         
+        alerta.addAction(UIAlertAction(title: "Cancelar", style: .default, handler: nil))
+        
         alerta.addAction(UIAlertAction(title: "Ok", style: .default, handler: {(UIAlertAction) in
             
             ref.removeValue()
@@ -55,7 +57,6 @@ class VCVerItem: UIViewController, UIImagePickerControllerDelegate, UINavigation
                 self.navigationController?.popViewController(animated: true)
             }
         }))
-        alerta.addAction(UIAlertAction(title: "Cancelar", style: .default, handler: nil))
         
         self.present(alerta, animated: true, completion: nil)
     }
