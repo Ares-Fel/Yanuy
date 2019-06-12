@@ -72,5 +72,13 @@ class VCListaItems: UIViewController, UITableViewDataSource, UITableViewDelegate
         performSegue(withIdentifier: "verItemSegue", sender:items[indexPath.row])
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "verItemSegue" {
+            let siguienteVC = segue.destination as! VCVerItem
+            siguienteVC.item = sender as! Item
+            
+        }
+    }
+    
 
 }

@@ -23,6 +23,8 @@ class VCVerUsuario: UIViewController {
         txtTipo.text! = usuario.tipo
         txtCorreo.text! = usuario.correo
         imagenPerfil.sd_setImage(with: URL(string: usuario.fotoURL), completed: nil)
+        imagenPerfil.layer.masksToBounds = true
+        imagenPerfil.layer.cornerRadius = 5
         
     }
 
