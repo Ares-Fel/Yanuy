@@ -16,8 +16,6 @@ class VCVerUsuario: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        btnGuardar.isHidden = true
-        btnCancelar.isHidden = true
         
         txtNombre.text! = usuario.nombre
         txtTipo.text! = usuario.tipo

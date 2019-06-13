@@ -3,6 +3,8 @@ import UIKit
 
 class VCInicioMozo: UIViewController {
 
+    var usuario = Usuario()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
