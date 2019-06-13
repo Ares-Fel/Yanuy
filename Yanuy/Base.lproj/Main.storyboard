@@ -658,7 +658,7 @@
                                     <color key="titleColor" red="0.55294117649999996" green="0.2156862745" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="tzL-MV-ICJ" kind="show" id="0js-Dr-KiF"/>
+                                    <segue destination="Wrz-P2-bwJ" kind="show" id="pUx-S3-fbK"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -682,6 +682,97 @@
             </objects>
             <point key="canvasLocation" x="1813.5999999999999" y="-550.07496251874068"/>
         </scene>
+<<<<<<< HEAD
+        <!--Nuevo Pedido-->
+        <scene sceneID="IcR-5b-dsM">
+            <objects>
+                <viewController id="Wrz-P2-bwJ" customClass="VCNuevoPedido" customModule="Yanuy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uxm-pm-JW6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aWc-NA-jX4">
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="item" rowHeight="100" id="Am9-5P-ZjY" customClass="tblMenuCelda" customModule="Yanuy" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Am9-5P-ZjY" id="FRE-4E-ged">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="99.666666666666671"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GQk-Qm-1VW">
+                                                    <rect key="frame" x="5" y="5.3333333333333357" width="90" height="90"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="90" id="6py-Bq-d4R"/>
+                                                        <constraint firstAttribute="height" constant="90" id="Pzl-wG-8j7"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ají de Gallina" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="48m-qm-ROD">
+                                                    <rect key="frame" x="100" y="10.333333333333336" width="105.33333333333331" height="21"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tipo: Fondo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mc5-w0-Svo">
+                                                    <rect key="frame" x="105" y="36.333333333333336" width="67.333333333333314" height="14.333333333333336"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Precio: S/. 12.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rYS-Gk-wSb">
+                                                    <rect key="frame" x="105" y="55.666666666666671" width="284" height="14.666666666666671"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stock: -" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QHY-3D-I9U">
+                                                    <rect key="frame" x="105" y="75.333333333333329" width="284" height="14.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Mc5-w0-Svo" firstAttribute="top" secondItem="48m-qm-ROD" secondAttribute="bottom" constant="5" id="0ur-97-f3D"/>
+                                                <constraint firstItem="GQk-Qm-1VW" firstAttribute="leading" secondItem="FRE-4E-ged" secondAttribute="leading" constant="5" id="9al-RA-RyN"/>
+                                                <constraint firstItem="rYS-Gk-wSb" firstAttribute="leading" secondItem="GQk-Qm-1VW" secondAttribute="trailing" constant="10" id="NCY-4B-J5i"/>
+                                                <constraint firstAttribute="bottom" secondItem="GQk-Qm-1VW" secondAttribute="bottom" constant="5" id="Tav-vE-iZJ"/>
+                                                <constraint firstItem="Mc5-w0-Svo" firstAttribute="leading" secondItem="GQk-Qm-1VW" secondAttribute="trailing" constant="10" id="ZYV-eA-FIT"/>
+                                                <constraint firstItem="QHY-3D-I9U" firstAttribute="top" secondItem="rYS-Gk-wSb" secondAttribute="bottom" constant="5" id="Zdn-MB-K1n"/>
+                                                <constraint firstItem="48m-qm-ROD" firstAttribute="leading" secondItem="GQk-Qm-1VW" secondAttribute="trailing" constant="5" id="bmt-TJ-NSf"/>
+                                                <constraint firstItem="rYS-Gk-wSb" firstAttribute="top" secondItem="Mc5-w0-Svo" secondAttribute="bottom" constant="5" id="bqh-MB-XDg"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="rYS-Gk-wSb" secondAttribute="trailing" constant="5" id="fS6-lF-foJ"/>
+                                                <constraint firstItem="GQk-Qm-1VW" firstAttribute="top" secondItem="FRE-4E-ged" secondAttribute="top" constant="5" id="mez-DY-whj"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="QHY-3D-I9U" secondAttribute="trailing" constant="5" id="mhy-bd-b16"/>
+                                                <constraint firstItem="48m-qm-ROD" firstAttribute="top" secondItem="FRE-4E-ged" secondAttribute="top" constant="10" id="n3A-7n-ANo"/>
+                                                <constraint firstItem="QHY-3D-I9U" firstAttribute="leading" secondItem="GQk-Qm-1VW" secondAttribute="trailing" constant="10" id="s8r-aK-huU"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="imagen" destination="GQk-Qm-1VW" id="QMx-IG-JF7"/>
+                                            <outlet property="lblNombre" destination="48m-qm-ROD" id="fhH-47-lbt"/>
+                                            <outlet property="lblPrecio" destination="rYS-Gk-wSb" id="8zw-GN-Dk5"/>
+                                            <outlet property="lblStock" destination="QHY-3D-I9U" id="bb4-Tr-6Qi"/>
+                                            <outlet property="lblTipo" destination="Mc5-w0-Svo" id="xLU-ei-PpV"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="zny-PM-t4y"/>
+                    </view>
+                    <connections>
+                        <outlet property="tblCategorias" destination="aWc-NA-jX4" id="hA6-2S-Bhg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oNx-Qm-YZR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2752" y="-537"/>
+=======
         <!--Perfil-->
         <scene sceneID="Lhx-hh-kq2">
             <objects>
@@ -790,6 +881,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vD4-wr-NQr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2729" y="-785"/>
+>>>>>>> 236751172b5f6f003b491b4122c1e9c7f45e46c8
         </scene>
         <!--Seleccionar Menú -->
         <scene sceneID="vSw-B6-LHs">
@@ -1607,6 +1699,8 @@
             </objects>
             <point key="canvasLocation" x="4452" y="-1063"/>
         </scene>
+<<<<<<< HEAD
+=======
         <!--Nuevo Pedido-->
         <scene sceneID="DHx-dI-HXc">
             <objects>
@@ -1647,6 +1741,7 @@
             </objects>
             <point key="canvasLocation" x="2729" y="6"/>
         </scene>
+>>>>>>> 236751172b5f6f003b491b4122c1e9c7f45e46c8
         <!--Navigation Controller-->
         <scene sceneID="ucd-M5-cZ6">
             <objects>
