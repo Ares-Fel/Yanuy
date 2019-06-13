@@ -21,6 +21,7 @@
 		CD4BE07022A2F1A900C963A4 /* VCListaUsuarios.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4BE06C22A2F1A900C963A4 /* VCListaUsuarios.swift */; };
 		CD4BE07122A2F1A900C963A4 /* VCInicioMozo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4BE06D22A2F1A900C963A4 /* VCInicioMozo.swift */; };
 		CD4BE07322A2F6CA00C963A4 /* VCNuevoPedido.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4BE07222A2F6CA00C963A4 /* VCNuevoPedido.swift */; };
+		CD550B0422B29447000B0FC6 /* VCEditarPerfil.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD550B0322B29447000B0FC6 /* VCEditarPerfil.swift */; };
 		CD63A6D822A7120700EE1044 /* VCNuevoUsuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD63A6D722A7120700EE1044 /* VCNuevoUsuario.swift */; };
 		CD63A6DA22A72F2100EE1044 /* VCNuevoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD63A6D922A72F2100EE1044 /* VCNuevoItem.swift */; };
 		CD63A6DC22A736A500EE1044 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD63A6DB22A736A500EE1044 /* Item.swift */; };
@@ -51,6 +52,7 @@
 		CD4BE06C22A2F1A900C963A4 /* VCListaUsuarios.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCListaUsuarios.swift; sourceTree = "<group>"; };
 		CD4BE06D22A2F1A900C963A4 /* VCInicioMozo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCInicioMozo.swift; sourceTree = "<group>"; };
 		CD4BE07222A2F6CA00C963A4 /* VCNuevoPedido.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCNuevoPedido.swift; sourceTree = "<group>"; };
+		CD550B0322B29447000B0FC6 /* VCEditarPerfil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCEditarPerfil.swift; sourceTree = "<group>"; };
 		CD63A6D722A7120700EE1044 /* VCNuevoUsuario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCNuevoUsuario.swift; sourceTree = "<group>"; };
 		CD63A6D922A72F2100EE1044 /* VCNuevoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCNuevoItem.swift; sourceTree = "<group>"; };
 		CD63A6DB22A736A500EE1044 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
@@ -118,13 +120,13 @@
 		CD1EF61E22AC2488000B76F9 /* Administrador */ = {
 			isa = PBXGroup;
 			children = (
+				CD4BE06B22A2F1A900C963A4 /* VCInicioAdministrador.swift */,
 				CD63A6D922A72F2100EE1044 /* VCNuevoItem.swift */,
 				CD63A6D722A7120700EE1044 /* VCNuevoUsuario.swift */,
 				CD8DDEE422A580540056123E /* VCVerItem.swift */,
 				CD8DDEE222A57F600056123E /* VCListaItems.swift */,
 				CD4BE06822A2F19B00C963A4 /* VCVerUsuario.swift */,
 				CD4BE06C22A2F1A900C963A4 /* VCListaUsuarios.swift */,
-				CD4BE06B22A2F1A900C963A4 /* VCInicioAdministrador.swift */,
 				CD1EF62022AC24D5000B76F9 /* VCListaMenu.swift */,
 				CD1EF62422AC5747000B76F9 /* VCConfirmarMenu.swift */,
 			);
@@ -134,8 +136,9 @@
 		CD1EF61F22AC248C000B76F9 /* Mozo */ = {
 			isa = PBXGroup;
 			children = (
-				CD4BE07222A2F6CA00C963A4 /* VCNuevoPedido.swift */,
 				CD4BE06D22A2F1A900C963A4 /* VCInicioMozo.swift */,
+				CD4BE07222A2F6CA00C963A4 /* VCNuevoPedido.swift */,
+				CD550B0322B29447000B0FC6 /* VCEditarPerfil.swift */,
 			);
 			path = Mozo;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD1EF62522AC5747000B76F9 /* VCConfirmarMenu.swift in Sources */,
+				CD550B0422B29447000B0FC6 /* VCEditarPerfil.swift in Sources */,
 				CD8DDEE522A580540056123E /* VCVerItem.swift in Sources */,
 				CD4BE07022A2F1A900C963A4 /* VCListaUsuarios.swift in Sources */,
 				CD4BE07322A2F6CA00C963A4 /* VCNuevoPedido.swift in Sources */,

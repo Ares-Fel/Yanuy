@@ -34,7 +34,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="admin" borderStyle="roundedRect" placeholder="Ingrese su usuario" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WnB-4c-q75">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="willy.baldeon@yanuy.com" borderStyle="roundedRect" placeholder="Ingrese su usuario" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WnB-4c-q75">
                                 <rect key="frame" x="107" y="415" width="200" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="LnH-1N-Sq3"/>
@@ -43,7 +43,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="admin123" borderStyle="roundedRect" placeholder="Ingrese su contraseña" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="La9-Ee-x20">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456" borderStyle="roundedRect" placeholder="Ingrese su contraseña" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="La9-Ee-x20">
                                 <rect key="frame" x="107" y="499" width="200" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="Hzt-8P-fy5"/>
@@ -478,7 +478,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bLD-d0-yZN">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bLD-d0-yZN">
                                 <rect key="frame" x="94.666666666666686" y="607" width="100" height="45"/>
                                 <color key="backgroundColor" red="0.40000000000000002" green="0.59999999999999998" blue="0.30588235289999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -493,7 +493,7 @@
                                     <action selector="btnGuardarTapped:" destination="2ow-dU-ZPc" eventType="touchUpInside" id="DjQ-AK-V5G"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7du-es-51K">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7du-es-51K">
                                 <rect key="frame" x="219.66666666666663" y="607" width="100" height="45"/>
                                 <color key="backgroundColor" red="0.55294117649999996" green="0.2156862745" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -671,12 +671,125 @@
                     </view>
                     <navigationItem key="navigationItem" id="Y9N-jq-hUH">
                         <barButtonItem key="backBarButtonItem" title="Atrás" id="u1Y-8n-0E9"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="sVw-7D-tYI"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="sVw-7D-tYI">
+                            <connections>
+                                <segue destination="a2p-b7-zyv" kind="show" id="2EQ-gZ-ayC"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Og-kq-nDS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1813.5999999999999" y="-550.07496251874068"/>
+        </scene>
+        <!--Perfil-->
+        <scene sceneID="Lhx-hh-kq2">
+            <objects>
+                <viewController id="a2p-b7-zyv" customClass="VCEditarPerfil" customModule="Yanuy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lcR-1X-cSP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V3L-u3-sAD">
+                                <rect key="frame" x="50" y="449" width="314" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="asdsd" borderStyle="roundedRect" textAlignment="center" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="NXf-WS-gAS">
+                                <rect key="frame" x="40" y="489" width="334" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="eoV-ef-SNY">
+                                <rect key="frame" x="82" y="164" width="250" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="Qr4-ln-FzR"/>
+                                    <constraint firstAttribute="height" constant="250" id="iKJ-HP-SRx"/>
+                                </constraints>
+                            </imageView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Er-Rw-rnx">
+                                <rect key="frame" x="129.66666666666666" y="114" width="154.99999999999997" height="30"/>
+                                <state key="normal" title="Editar imagen de perfil"/>
+                                <connections>
+                                    <action selector="btnCambiarImagenTapped:" destination="a2p-b7-zyv" eventType="touchUpInside" id="DNs-0T-eSD"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ISC-OV-4IK">
+                                <rect key="frame" x="95" y="569" width="100" height="45"/>
+                                <color key="backgroundColor" red="0.40000000000000002" green="0.59999999999999998" blue="0.30588235289999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="KX3-bV-aiJ"/>
+                                    <constraint firstAttribute="width" constant="100" id="Kt9-vt-4sb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <state key="normal" title="Guardar">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnGuardarTapped:" destination="a2p-b7-zyv" eventType="touchUpInside" id="C6c-2C-a5L"/>
+                                    <action selector="btnGuardarTapped:" destination="9Ny-LH-mzK" eventType="touchUpInside" id="TI8-ZN-nEV"/>
+                                    <action selector="btnGuardarTapped:" destination="2ow-dU-ZPc" eventType="touchUpInside" id="XEF-Ky-Jye"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sTi-eb-g8u">
+                                <rect key="frame" x="220" y="569" width="100" height="45"/>
+                                <color key="backgroundColor" red="0.55294117649999996" green="0.2156862745" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="ItL-hO-0vA"/>
+                                    <constraint firstAttribute="width" constant="100" id="Unw-rl-xHf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <state key="normal" title="Cancelar">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnCancelar:" destination="9Ny-LH-mzK" eventType="touchUpInside" id="4Vc-sO-Hb6"/>
+                                    <action selector="btnCancelarTapped:" destination="2ow-dU-ZPc" eventType="touchUpInside" id="0O3-IE-ub5"/>
+                                    <action selector="btnCancelarTapped:" destination="a2p-b7-zyv" eventType="touchUpInside" id="NRJ-6Y-zoO"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="3Er-Rw-rnx" firstAttribute="centerX" secondItem="lcR-1X-cSP" secondAttribute="centerX" id="2zk-Ji-n0b"/>
+                            <constraint firstItem="V3L-u3-sAD" firstAttribute="leading" secondItem="i6l-ID-IBq" secondAttribute="leading" constant="50" id="7ue-u4-4Ly"/>
+                            <constraint firstItem="eoV-ef-SNY" firstAttribute="centerX" secondItem="lcR-1X-cSP" secondAttribute="centerX" id="8ev-CV-LW9"/>
+                            <constraint firstItem="NXf-WS-gAS" firstAttribute="leading" secondItem="i6l-ID-IBq" secondAttribute="leading" constant="40" id="HWh-N2-FRH"/>
+                            <constraint firstItem="eoV-ef-SNY" firstAttribute="top" secondItem="3Er-Rw-rnx" secondAttribute="bottom" constant="20" id="Kgx-tW-jJY"/>
+                            <constraint firstItem="3Er-Rw-rnx" firstAttribute="top" secondItem="i6l-ID-IBq" secondAttribute="top" constant="50" id="P6c-LN-5EA"/>
+                            <constraint firstItem="V3L-u3-sAD" firstAttribute="centerX" secondItem="lcR-1X-cSP" secondAttribute="centerX" id="QCF-XW-nm1"/>
+                            <constraint firstItem="sTi-eb-g8u" firstAttribute="top" secondItem="NXf-WS-gAS" secondAttribute="bottom" constant="50" id="Sgw-PO-avE"/>
+                            <constraint firstItem="i6l-ID-IBq" firstAttribute="trailing" secondItem="V3L-u3-sAD" secondAttribute="trailing" constant="50" id="Sjr-dM-ZAZ"/>
+                            <constraint firstItem="NXf-WS-gAS" firstAttribute="top" secondItem="V3L-u3-sAD" secondAttribute="bottom" constant="10" id="TeX-Lw-FqA"/>
+                            <constraint firstItem="ISC-OV-4IK" firstAttribute="centerX" secondItem="lcR-1X-cSP" secondAttribute="centerX" constant="-62" id="Wok-Xz-ccO"/>
+                            <constraint firstItem="sTi-eb-g8u" firstAttribute="leading" secondItem="ISC-OV-4IK" secondAttribute="trailing" constant="25" id="g0T-Mi-ab2"/>
+                            <constraint firstItem="i6l-ID-IBq" firstAttribute="trailing" secondItem="NXf-WS-gAS" secondAttribute="trailing" constant="40" id="i14-et-QmL"/>
+                            <constraint firstItem="ISC-OV-4IK" firstAttribute="top" secondItem="NXf-WS-gAS" secondAttribute="bottom" constant="50" id="nPI-mr-l9e"/>
+                            <constraint firstItem="V3L-u3-sAD" firstAttribute="top" secondItem="eoV-ef-SNY" secondAttribute="bottom" constant="35" id="vka-ST-rZ6"/>
+                            <constraint firstItem="NXf-WS-gAS" firstAttribute="centerX" secondItem="lcR-1X-cSP" secondAttribute="centerX" id="zEd-tN-pjh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="i6l-ID-IBq"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Perfil" id="R6M-m1-syh">
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="2vm-vX-zQd">
+                            <connections>
+                                <action selector="btnEditarTapped:" destination="a2p-b7-zyv" id="9uG-Y9-5Fw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="btnCambiarImagen" destination="3Er-Rw-rnx" id="1Qb-Hh-NmD"/>
+                        <outlet property="btnCancelar" destination="sTi-eb-g8u" id="5oV-H9-Kg8"/>
+                        <outlet property="btnGuardar" destination="ISC-OV-4IK" id="Cpa-19-8CM"/>
+                        <outlet property="imagenPerfil" destination="eoV-ef-SNY" id="mQX-ud-a4R"/>
+                        <outlet property="txtNombre" destination="NXf-WS-gAS" id="f66-lB-9m9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vD4-wr-NQr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2729" y="-785"/>
         </scene>
         <!--Seleccionar Menú -->
         <scene sceneID="vSw-B6-LHs">
@@ -1532,7 +1645,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yU8-Mz-bDR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2638" y="-550"/>
+            <point key="canvasLocation" x="2729" y="6"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ucd-M5-cZ6">
