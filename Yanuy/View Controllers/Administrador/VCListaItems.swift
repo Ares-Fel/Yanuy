@@ -11,7 +11,7 @@ class tblCartaCelda: UITableViewCell {
     
 }
 
-class VCListaItems: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class VCListaItems: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating, UISearchBarDelegate {
 
     @IBOutlet weak var tblCarta: UITableView!
     
@@ -20,18 +20,62 @@ class VCListaItems: UIViewController, UITableViewDataSource, UITableViewDelegate
         [Item()],
         [Item()]
     ]
+    
+    var itemsFiltrados = [      //Array para almacenar solo los resultados de nuestra búsqueda
+        [Item()],
+        [Item()],
+        [Item()]
+    ]
 
     var secciones = ["Entradas", "Fondos", "Postres"]
+    
+    var textoBusqueda = "" //Texto de Búsqueda
+    var searchController:UISearchController! //Barra de Búsqueda
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tblCarta.delegate = self
         tblCarta.dataSource = self
+        
+        searchController = UISearchController(searchResultsController: nil)
+        tblCarta.tableHeaderView = searchController.searchBar //Agregamos la barra en la cabecera
+
+        //Barra de búsqueda
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Buscar..."
+        searchController.searchBar.tintColor = UIColor.gray
+        searchController.searchBar.barTintColor = UIColor(red:1.00, green:0.56, blue:0.32, alpha:1.0)
 
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        print("Se recargará la tabla")
         cargarItems()
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        print("Text \(searchController.searchBar.text!)")
+        self.textoBusqueda = searchController.searchBar.text!
+        
+        itemsFiltrados[0].removeAll()   //Reiniciamos el Array de resultados de búsqueda
+        itemsFiltrados[1].removeAll()
+        itemsFiltrados[2].removeAll()
+        
+        for i in items {
+            for j in i {
+                if j.nombre.lowercased().contains(textoBusqueda.lowercased()) { //Comparamos el texto ingresado en la barra de búsqueda con cada elemento del Array
+                    switch j.tipo {
+                    case "Entrada": itemsFiltrados[0].append(j)
+                    case "Fondo": itemsFiltrados[1].append(j)
+                    default: itemsFiltrados[2].append(j)
+                    }
+                }
+            }
+        }
+        
+        tblCarta.reloadData()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -43,13 +87,23 @@ class VCListaItems: UIViewController, UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items[section].count
+        if self.textoBusqueda != "" {  //Si hay una búsqueda en proceso, se contará el número de ELEMENTOS FILTRADOS en el Array correspondiente
+            return itemsFiltrados[section].count
+        } else {  //Si no hay una búsqueda en proceso, se contarán TODOS los elementos obtenidos de la consulta
+            return items[section].count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let celda = tblCarta.dequeueReusableCell(withIdentifier: "item", for: indexPath) as! tblCartaCelda
+        
         var item = items[indexPath.section][indexPath.row]
-
+        
+        if self.textoBusqueda != "" { //Si hay una búsqueda en proceso, el item se obtiene de la lista de elementos filtrados
+            item = itemsFiltrados[indexPath.section][indexPath.row]
+            
+        }
+        
+        let celda = tblCarta.dequeueReusableCell(withIdentifier: "item", for: indexPath) as! tblCartaCelda
         celda.lblNombre?.text = item.nombre
         celda.lblPrecio?.text = "S/\(item.precio)"
         celda.lblNombre?.layer.masksToBounds = true
@@ -73,7 +127,14 @@ class VCListaItems: UIViewController, UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "verItemSegue", sender:items[indexPath.section][indexPath.row])
+        var item = items[indexPath.section][indexPath.row] //Obtenemos la celda seleccionada
+        
+        if textoBusqueda != "" { //Si hay una búsqueda en proceso, el item se obtiene de la lista de elementos filtrados
+            item = itemsFiltrados[indexPath.section][indexPath.row]
+        }
+        
+        searchController.isActive = false
+        performSegue(withIdentifier: "verItemSegue", sender: item)
     }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
@@ -103,7 +164,6 @@ class VCListaItems: UIViewController, UITableViewDataSource, UITableViewDelegate
         self.items[1].removeAll()
         self.items[2].removeAll()
         Database.database().reference().child("items").observe(DataEventType.childAdded, with: { (snapshot) in
-            print("AQUI: \(snapshot)")
             
             let item = Item()
             item.nombre = (snapshot.value as! NSDictionary)["nombre"] as! String
