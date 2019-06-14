@@ -12,6 +12,7 @@ class VCInicioSesion: UIViewController {
     }
     
     @IBAction func btnIngresarTapped(_ sender: Any) {
+        
         Auth.auth().signIn(withEmail: txtUsuario.text!, password: txtContraseña.text!) { (user, error) in
             
              print("Intentando iniciar sesion \(user?.user.uid)")
@@ -26,6 +27,8 @@ class VCInicioSesion: UIViewController {
                 self.present(alerta, animated: true, completion: nil)
                 
              } else{
+                
+                //INTENTANDO INGRESAR COMO ADMINISTRADOR
                 
                 let usuario = Usuario()
                 Database.database().reference().child("usuarios").child((user?.user.uid)!).observe(DataEventType.value, with: { (snapshot) in
@@ -60,17 +63,15 @@ class VCInicioSesion: UIViewController {
     }
     
     @IBAction func btnIngresarMozoTapped(_ sender: Any) {
-        self.performSegue(withIdentifier: "inicioMozoSegue", sender: nil)
+        self.performSegue(withIdentifier: "inicioAdministradorSegue", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "inicioMozoSegue" {
             let siguienteVC = segue.destination as! VCInicioMozo
             siguienteVC.usuario = sender as! Usuario
-        }else if segue.identifier == "inicioAdministradorSegue" {
-            let siguienteVC = segue.destination as! VCInicioAdministrador
-            siguienteVC.usuario = sender as! Usuario
         }
+        
     }
     
 }

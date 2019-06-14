@@ -9,7 +9,6 @@ class VCNuevoItem: UIViewController, UIImagePickerControllerDelegate, UINavigati
     @IBOutlet weak var txtNombre: UITextField!
     @IBOutlet weak var txtTipo: UITextField!
     @IBOutlet weak var txtPrecio: UITextField!
-    @IBOutlet weak var txtStock: UITextField!
     
     var imagePicker = UIImagePickerController()
     var imagenID = NSUUID().uuidString
@@ -60,14 +59,12 @@ class VCNuevoItem: UIViewController, UIImagePickerControllerDelegate, UINavigati
                             self.item.nombre = self.txtNombre.text!
                             self.item.tipo = self.txtTipo.text!
                             self.item.precio = self.txtPrecio.text!
-                            self.item.stock = self.txtStock.text!
                             self.item.imagenURL = (imagenURL?.absoluteString)!
                             self.item.imagenID = self.imagenID
                             
                             let datos = ["nombre" : self.item.nombre,
                                          "tipo" : self.item.tipo,
                                          "precio" : self.item.precio,
-                                         "stock" : self.item.stock,
                                          "imagenURL" : self.item.imagenURL,
                                          "imagenID" : self.item.imagenID,
                                          "menu" : self.item.menu] as [String : Any]

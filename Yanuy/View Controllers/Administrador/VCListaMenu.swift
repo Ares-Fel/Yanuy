@@ -9,7 +9,6 @@ class tblMenuCelda:UITableViewCell{
     @IBOutlet weak var lblNombre: UILabel!
     @IBOutlet weak var lblTipo: UILabel!
     @IBOutlet weak var lblPrecio: UILabel!
-    @IBOutlet weak var lblStock: UILabel!
     @IBOutlet weak var marca: UIImageView!
     
 }
@@ -61,7 +60,6 @@ class VCListaMenu: UIViewController, UITableViewDelegate, UITableViewDataSource,
             item.nombre = (snapshot.value as! NSDictionary)["nombre"] as! String
             item.tipo = (snapshot.value as! NSDictionary)["tipo"] as! String
             item.precio = (snapshot.value as! NSDictionary)["precio"] as! String
-            item.stock = (snapshot.value as! NSDictionary)["stock"] as! String
             item.imagenURL = (snapshot.value as! NSDictionary)["imagenURL"] as! String
             item.imagenID = (snapshot.value as! NSDictionary)["imagenID"] as! String
             item.menu = (snapshot.value as! NSDictionary)["menu"] as! Bool

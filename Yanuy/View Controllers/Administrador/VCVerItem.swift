@@ -7,7 +7,6 @@ class VCVerItem: UIViewController, UIImagePickerControllerDelegate, UINavigation
 
     @IBOutlet weak var btnCancelar: UIButton!
     @IBOutlet weak var btnGuardar: UIButton!
-    @IBOutlet weak var txtStock: UITextField!
     @IBOutlet weak var txtPrecio: UITextField!
     @IBOutlet weak var txtNombre: UITextField!
     @IBOutlet weak var txtTipo: UITextField!
@@ -23,19 +22,14 @@ class VCVerItem: UIViewController, UIImagePickerControllerDelegate, UINavigation
         super.viewDidLoad()
         imagenID = item.imagenID
         
-        btnGuardar.isHidden = true
-        btnCancelar.isHidden = true
-        btnEditarImg.isHidden = true
-        
         imagePicker.delegate = self
         
         txtNombre.text = item.nombre
         txtTipo.text = item.tipo
         txtPrecio.text = item.precio
-        txtStock.text = item.stock
         imagen.sd_setImage(with: URL(string: item.imagenURL), completed: nil)
         imagen.layer.masksToBounds = true
-        imagen.layer.cornerRadius = 5
+        imagen.layer.cornerRadius = 15
 
      //   celda.imagenCarta?.sd_setImage(with: URL(string: item.imagenURL), completed: nil)
 
@@ -68,7 +62,6 @@ class VCVerItem: UIViewController, UIImagePickerControllerDelegate, UINavigation
         
         txtNombre.isEnabled = true
         txtTipo.isEnabled = true
-        //txtStock.isEnabled = true
         txtPrecio.isEnabled = true
     }
     
@@ -149,10 +142,10 @@ class VCVerItem: UIViewController, UIImagePickerControllerDelegate, UINavigation
     @IBAction func btnCancelarTapped(_ sender: Any) {
         btnGuardar.isHidden = true
         btnCancelar.isHidden = true
+        btnEditarImg.isHidden = true
         
         txtNombre.isEnabled = false
         txtTipo.isEnabled = false
-        txtStock.isEnabled = false
         txtPrecio.isEnabled = false
         
         txtNombre.text! = item.nombre
