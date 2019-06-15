@@ -49,33 +49,28 @@ class VCConfirmarPedido: UIViewController {
 
         } else {
             
-            var mensaje = "¿Está seguro de realizar el pedido?"
+            var mensaje = "Para continuar, ingrese el número de la mesa:"
             
             if fondos == "" {
                 mensaje = "No ha seleccionado ningún fondo. ¿Está seguro de continuar?"
             }
-            let alerta = UIAlertController(title: "Confirmar Pedido", message: mensaje, preferredStyle: .alert)
-
-            alerta.addAction(UIAlertAction(title: "No", style: .cancel))
-            alerta.addAction(UIAlertAction(title: "Si", style: .default, handler: {(UIAlertAction) in
-                print("GG") //Aquí va el codigo :v
+            
+            let alerta = UIAlertController(title: "Título original e ingenioso", message: mensaje, preferredStyle: .alert)
+            
+            let action = UIAlertAction(title: "Continuar", style: .default) {
+                (UIAlertAction) in
+                let textField = alerta.textFields![0] as UITextField
+                self.confirmar(nroMesa: textField.text!)
                 
-                /*
-                do {
-                    //for i in self.menu {
-                    
-                    //}
-                    
-                    let alerta = UIAlertController(title: "¡HECHO!", message: "El menú se modificó satisfactoriamente.", preferredStyle: .alert)
-                    
-                    alerta.addAction(UIAlertAction(title: "Ok", style: .default, handler: {(UIAlertAction) in
-                        self.navigationController?.popViewController(animated: true)
-                    }))
-                    
-                    self.present(alerta, animated: true, completion: nil)
-                    
-                } catch { print("Ocurrió un error.") }*/
-            }))
+            }
+            
+            alerta.addTextField { (textField) in
+                textField.placeholder = "Número de mesa"
+                
+            }
+            
+            alerta.addAction(action)
+            
             self.present(alerta, animated: true, completion: nil)
         }
     }
@@ -84,4 +79,42 @@ class VCConfirmarPedido: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    func confirmar(nroMesa:String){
+        if Double(nroMesa)! > 0  {
+            
+            let confirmacion = UIAlertController(title: "Confirmar Pedido", message: "Se registrará el pedido para la mesa \(nroMesa). ¿Está seguro?", preferredStyle: .alert)
+            confirmacion.addAction(UIAlertAction(title: "No", style: .default, handler: nil))
+            confirmacion.addAction(UIAlertAction(title: "Si", style: .default, handler: {(UIAlertAction) in
+                
+                let fecha = Date()
+                let calendar = Calendar.current
+                 
+                let año = calendar.component(.year, from: fecha)
+                let mes = calendar.component(.month, from: fecha)
+                let dia = calendar.component(.day, from: fecha)
+                let hora = calendar.component(.hour, from: fecha)
+                let minuto = calendar.component(.minute, from: fecha)
+                let segundo = calendar.component(.second, from: fecha)
+                
+                let ref = Database.database().reference().child("pedidos").child(self.pedido.id)
+                ref.updateChildValues(["estado" : "pendiente", "nroMesa" : "\(nroMesa)", "fecha" : "\(año)/\(dia)\(mes)", "hora" : "\(hora):\(minuto):\(segundo)"])
+                self.notificar()
+                
+                }))
+            
+            self.present(confirmacion, animated: true, completion: nil)
+        } else {
+            print("No mms pdnjo, pon un número")
+        }
+    }
+    
+    func notificar(){
+        let notificacion = UIAlertController(title: "¡HECHO!", message: "El pedido fue enviado al Chef con éxito.", preferredStyle: .alert)
+        
+        notificacion.addAction(UIAlertAction(title: "Entendido", style: .default, handler: {(UIAlertAction) in
+            self.navigationController?.popViewController(animated: true)
+        }))
+        
+        self.present(notificacion, animated: true, completion: nil)
+    }
 }

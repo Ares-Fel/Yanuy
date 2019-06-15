@@ -106,22 +106,13 @@ class VCNuevoPedido: UIViewController, UITableViewDelegate, UITableViewDataSourc
         tblPedido.dataSource = self
         tblPedido.delegate = self
         
-        /*let fecha = Date()
-        let calendar = Calendar.current
-        
-        let año = calendar.component(.year, from: fecha)
-        let mes = calendar.component(.month, from: fecha)
-        let dia = calendar.component(.day, from: fecha)
-        let hora = calendar.component(.hour, from: fecha)
-        let minuto = calendar.component(.minute, from: fecha)
-        let segundo = calendar.component(.second, from: fecha)*/
-        
         //Creamos el pedido
         pedido.id = NSUUID().uuidString
         pedido.estado = "Inactivo"
 
         let datos = ["nroMesa" : pedido.nroMesa,
-                     "fecha" : pedido.nroMesa,
+                     "fecha" : pedido.fecha,
+                     "hora" : pedido.hora,
                      "estado": pedido.estado] as [String : Any]
         Database.database().reference().child("pedidos").child(pedido.id).setValue(datos)
         
