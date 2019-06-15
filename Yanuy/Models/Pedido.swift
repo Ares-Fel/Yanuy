@@ -2,6 +2,8 @@
 import Foundation
 
 class Pedido {
-    var mesa = ""
-    var tipo = ""
+    var id = ""
+    var estado = "" //Pendiente, Completado, Inactivo
+    var nroMesa = ""
+    var fecha = ""
 }

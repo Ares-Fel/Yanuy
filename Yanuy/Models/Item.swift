@@ -3,7 +3,7 @@ import Foundation
 
 class Item {
     var nombre = ""
-    var tipo = ""
+    var tipo = "" //Entrada, Fondo, Postre
     var precio = ""
     var imagenURL = ""
     var imagenID = ""

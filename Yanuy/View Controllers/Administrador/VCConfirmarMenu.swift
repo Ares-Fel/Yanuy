@@ -4,8 +4,6 @@ import Firebase
 
 class VCConfirmarMenu: UIViewController{
     
-    
-
     @IBOutlet weak var txtEntradas: UITextView!
     @IBOutlet weak var txtFondos: UITextView!
     @IBOutlet weak var txtPostres: UITextView!

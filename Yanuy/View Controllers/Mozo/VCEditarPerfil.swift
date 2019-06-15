@@ -13,7 +13,6 @@ class VCEditarPerfil: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         print((Auth.auth().currentUser?.uid)!)
         
         //let datos = ["nombre" : self.txtNombre.text!, "correo" : self.txtCorreo.text!, "tipo" : self.txtTipo.text!] as [String : Any]

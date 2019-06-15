@@ -1,64 +1,241 @@
 
 import UIKit
+import Firebase
+import SDWebImage
 
-struct cellData {
-    var opened = Bool()
-    var title = String()
-    var sectionData = [String]()
+class tblPedidoCelda:UITableViewCell{
+    
+    @IBOutlet weak var imagen: UIImageView!
+    @IBOutlet weak var lblPrecio: UILabel!
+    @IBOutlet weak var lblNombre: UILabel!
+    @IBOutlet weak var lblCantidad: UILabel!
+    @IBOutlet weak var btnMenos: UIButton!
+    @IBOutlet weak var btnMas: UIButton!
+    @IBOutlet weak var contenedor: UIView!
+    @IBOutlet weak var contenedor2: UIView!
+    @IBOutlet weak var marca: UIButton!
+    
+    var cont = 1
+    var marcado = false
+    var item = Item()
+    var pedido_id = ""
+    
+    @IBAction func btnMarca(_ sender: Any) {
+        marcado = !marcado
+
+        if marcado{
+            agregarItem()
+            marca.setImage(UIImage(named:"checked"), for: .normal)
+            btnMenos.isHidden = false
+            btnMas.isHidden = false
+            lblCantidad.isHidden = false
+            cont = 1
+            lblCantidad.text! = "\(cont)"
+            
+        } else {
+            quitarItem()
+            marca.setImage(UIImage(named:"unchecked"), for: .normal)
+            btnMenos.isHidden = true
+            btnMas.isHidden = true
+            lblCantidad.isHidden = true
+        }
+    }
+    
+    @IBAction func btnMasTapped(_ sender: Any) {
+        cont += 1
+        lblCantidad.text! = "\(cont)"
+        modificarCatidad(cantidad: cont)
+    }
+    
+    @IBAction func btnMenosTapped(_ sender: Any) {
+        if cont > 0 {
+            cont -= 1
+            
+            if cont == 0 {
+                quitarItem()
+                marca.setImage(UIImage(named:"unchecked"), for: .normal)
+                btnMenos.isHidden = true
+                btnMas.isHidden = true
+                lblCantidad.isHidden = true
+                marcado = !marcado
+                
+            } else {
+                lblCantidad.text! = "\(cont)"
+                modificarCatidad(cantidad: cont)
+            }
+        }
+    }
+    
+    func agregarItem(){
+        let datos = ["nombre" : item.nombre, "cantidad" : 1, "tipo" : item.tipo] as [String : Any]
+        Database.database().reference().child("pedidos").child(pedido_id).child("contenido").child(item.id).setValue(datos)
+    }
+    
+    func quitarItem(){
+        let ref = Database.database().reference().child("pedidos").child(pedido_id).child("contenido").child(item.id)
+        ref.removeValue()
+        /*let ref = Database.database().reference().child("pedidos").child(item.id)
+        ref.updateChildValues(["menu" : false])*/
+    }
+    
+    func modificarCatidad(cantidad:Int){
+        let ref = Database.database().reference().child("pedidos").child(pedido_id).child("contenido").child(item.id)
+        ref.updateChildValues(["cantidad" : cantidad])
+    }
 }
 
+
+
+
 class VCNuevoPedido: UIViewController, UITableViewDelegate, UITableViewDataSource {
+        
+    @IBOutlet weak var tblPedido: UITableView!
     
-    @IBOutlet weak var tblCategorias: UITableView!
+    var secciones = ["Entradas", "Fondos", "Postres"]
+
+    var items = [               //Array para almacenar los items
+        [Item()],
+        [Item()],
+        [Item()]
+    ]
     
-    var tableViewData = [cellData]()
+    var pedido = Pedido()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tblCategorias.dataSource = self
-        tblCategorias.delegate = self
+        tblPedido.dataSource = self
+        tblPedido.delegate = self
         
-        tableViewData = [cellData(opened: false, title: "Entradas", sectionData: ["Causa", "Caldo Blanco", "Caldo de Gallina"]),
-                         cellData(opened: false, title: "Fondos", sectionData: ["Ají de Gallina", "Lomo Saltado", "Rocoto Relleno"]),
-                         cellData(opened: false, title: "Postres", sectionData: ["Pie de Manzana", "Pastel de Chocolate", "Gelatina"])]
+        /*let fecha = Date()
+        let calendar = Calendar.current
+        
+        let año = calendar.component(.year, from: fecha)
+        let mes = calendar.component(.month, from: fecha)
+        let dia = calendar.component(.day, from: fecha)
+        let hora = calendar.component(.hour, from: fecha)
+        let minuto = calendar.component(.minute, from: fecha)
+        let segundo = calendar.component(.second, from: fecha)*/
+        
+        //Creamos el pedido
+        pedido.id = NSUUID().uuidString
+        pedido.estado = "Inactivo"
+
+        let datos = ["nroMesa" : pedido.nroMesa,
+                     "fecha" : pedido.nroMesa,
+                     "estado": pedido.estado] as [String : Any]
+        Database.database().reference().child("pedidos").child(pedido.id).setValue(datos)
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        cargarItems()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        /*if self.pedido.estado == "Inactivo"{
+            let ref = Database.database().reference().child("pedidos").child(self.pedido.id)
+            ref.removeValue()
+        }*/
+    }
+    
+    @IBAction func btnConfirmar(_ sender: Any) {
+        print("AQUI EL ID DEL PEDIDO: \(pedido.id)")
+        performSegue(withIdentifier: "confirmarPedidoSegue", sender: pedido)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return tableViewData.count;
+        return secciones.count
     }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return secciones[section]
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if tableViewData[section].opened == true {
-            return tableViewData[section].sectionData.count + 1
-        } else {
-            return 1
-        }
+        return items[section].count
      }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let item = items[indexPath.section][indexPath.row]
+        let celda = tblPedido.dequeueReusableCell(withIdentifier: "item", for: indexPath) as! tblPedidoCelda
         
-        if indexPath.row == 0 {
-            guard let cell = tblCategorias.dequeueReusableCell(withIdentifier: "categoria") else  { return UITableViewCell()}
-            cell.textLabel?.text = tableViewData[indexPath.section].title
-            return cell
-            
-        } else {
-            guard let cell = tblCategorias.dequeueReusableCell(withIdentifier: "categoria") else  { return UITableViewCell()}
-            cell.textLabel?.text = tableViewData[indexPath.section].sectionData[indexPath.row - 1 ]
-            return cell
-            
+        celda.imagen?.sd_setImage(with: URL(string: item.imagenURL), completed: nil)
+        celda.imagen.layer.masksToBounds = true
+        celda.imagen.layer.cornerRadius = 5
+        celda.lblNombre?.text = item.nombre
+        celda.lblPrecio?.text = item.precio
+        celda.contenedor.layer.masksToBounds = true
+        celda.contenedor.layer.cornerRadius = 5
+        celda.contenedor2.layer.masksToBounds = true
+        celda.contenedor2.layer.cornerRadius = 5
+        
+        celda.item = item //Asignamos a cada celda el modelo que deben manejar
+        celda.pedido_id = self.pedido.id //Asignamos a cada celda el ID del pedido
+        
+        switch item.tipo {
+        case "Entrada":
+            celda.lblNombre?.backgroundColor = UIColor(red:0.00, green:0.60, blue:0.15, alpha:1.0)
+        case "Fondo":
+            celda.lblNombre?.backgroundColor = UIColor(red:1.00, green:0.65, blue:0.01, alpha:1.0)
+        default:
+            celda.lblNombre?.backgroundColor = UIColor(red:0.91, green:0.25, blue:0.09, alpha:1.0)
         }
+        
+        return celda
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if tableViewData[indexPath.section].opened == true {
-            tableViewData[indexPath.section].opened = false
-            let sections = IndexSet.init(integer: indexPath.section)
-            tblCategorias.reloadSections(sections, with: .bottom)
-        } else {
-            tableViewData[indexPath.section].opened = true
-            let sections = IndexSet.init(integer: indexPath.section)
-            tblCategorias.reloadSections(sections, with: .none)
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        switch section {
+        case 0:
+            view.tintColor = UIColor(red:0.00, green:0.60, blue:0.15, alpha:1.0)
+        case 1:
+            view.tintColor = UIColor(red:1.00, green:0.65, blue:0.01, alpha:1.0)
+        default:
+            view.tintColor = UIColor(red:0.91, green:0.25, blue:0.09, alpha:1.0)
         }
+        
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.textColor = UIColor.white
+    }
+    
+    func cargarItems(){
+        self.items[0].removeAll()  //Reiniciamos el Array
+        self.items[1].removeAll()
+        self.items[2].removeAll()
+        
+        Database.database().reference().child("items").observe(DataEventType.childAdded, with: { (snapshot) in
+            print("AQUI: \(snapshot)")
+            
+            let item = Item()
+            item.nombre = (snapshot.value as! NSDictionary)["nombre"] as! String
+            item.tipo = (snapshot.value as! NSDictionary)["tipo"] as! String
+            item.precio = (snapshot.value as! NSDictionary)["precio"] as! String
+            item.imagenURL = (snapshot.value as! NSDictionary)["imagenURL"] as! String
+            item.imagenID = (snapshot.value as! NSDictionary)["imagenID"] as! String
+            item.menu = (snapshot.value as! NSDictionary)["menu"] as! Bool
+            item.id = snapshot.key
+            
+            if item.menu == true{
+                //Según el tipo, agregamos cada item a la posición correspondiente del array
+                if item.tipo == "Entrada" {
+                    self.items[0].append(item)
+                } else if item.tipo == "Fondo" {
+                    self.items[1].append(item)
+                } else {
+                    self.items[2].append(item)
+                }
+            }
+            
+            self.tblPedido.reloadData()
+        })
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "confirmarPedidoSegue"{
+            let siguienteVC = segue.destination as! VCConfirmarPedido
+            siguienteVC.pedido = sender as! Pedido
+        }
+        
     }
 
 }
