@@ -97,7 +97,7 @@ class VCConfirmarPedido: UIViewController {
                 let segundo = calendar.component(.second, from: fecha)
                 
                 let ref = Database.database().reference().child("pedidos").child(self.pedido.id)
-                ref.updateChildValues(["estado" : "pendiente", "nroMesa" : "\(nroMesa)", "fecha" : "\(año)/\(dia)\(mes)", "hora" : "\(hora):\(minuto):\(segundo)"])
+                ref.updateChildValues(["estado" : "pendiente", "nroMesa" : "\(nroMesa)", "fecha" : "\(año)/\(dia)/\(mes)", "hora" : "\(hora):\(minuto):\(segundo)"])
                 self.notificar()
                 
                 }))
