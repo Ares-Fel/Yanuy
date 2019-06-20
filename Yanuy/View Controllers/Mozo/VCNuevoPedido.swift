@@ -67,8 +67,9 @@ class tblPedidoCelda:UITableViewCell{
     }
     
     func agregarItem(){
-        let datos = ["nombre" : item.nombre, "cantidad" : 1, "tipo" : item.tipo] as [String : Any]
+        let datos = ["nombre" : item.nombre, "cantidad" : 1, "tipo" : item.tipo, "precio" : item.precio] as [String : Any]
         Database.database().reference().child("pedidos").child(pedido_id).child("contenido").child(item.id).setValue(datos)
+        
     }
     
     func quitarItem(){
@@ -113,8 +114,14 @@ class VCNuevoPedido: UIViewController, UITableViewDelegate, UITableViewDataSourc
         let datos = ["nroMesa" : pedido.nroMesa,
                      "fecha" : pedido.fecha,
                      "hora" : pedido.hora,
-                     "estado": pedido.estado] as [String : Any]
+                     "estado": pedido.estado,
+                     "total" : pedido.total] as [String : Any]
         Database.database().reference().child("pedidos").child(pedido.id).setValue(datos)
+        
+        Database.database().reference().child("usuarios").child((Auth.auth().currentUser?.uid)!).child("snaps").observe(DataEventType.childRemoved, with: { (snapshot) in
+            
+            self.tblPedido.reloadData()
+        })
         
     }
     
@@ -123,10 +130,10 @@ class VCNuevoPedido: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        /*if self.pedido.estado == "Inactivo"{
+        /*
             let ref = Database.database().reference().child("pedidos").child(self.pedido.id)
             ref.removeValue()
-        }*/
+        */
     }
     
     @IBAction func btnConfirmar(_ sender: Any) {
@@ -227,6 +234,34 @@ class VCNuevoPedido: UIViewController, UITableViewDelegate, UITableViewDataSourc
             siguienteVC.pedido = sender as! Pedido
         }
         
+    }
+    
+    func cargarPedido(){
+        Database.database().reference().child("items").observe(DataEventType.childAdded, with: { (snapshot) in
+            print("AQUI: \(snapshot)")
+            
+            let item = Item()
+            item.nombre = (snapshot.value as! NSDictionary)["nombre"] as! String
+            item.tipo = (snapshot.value as! NSDictionary)["tipo"] as! String
+            item.precio = (snapshot.value as! NSDictionary)["precio"] as! String
+            item.imagenURL = (snapshot.value as! NSDictionary)["imagenURL"] as! String
+            item.imagenID = (snapshot.value as! NSDictionary)["imagenID"] as! String
+            item.menu = (snapshot.value as! NSDictionary)["menu"] as! Bool
+            item.id = snapshot.key
+            
+            if item.menu == true{
+                //Según el tipo, agregamos cada item a la posición correspondiente del array
+                if item.tipo == "Entrada" {
+                    self.items[0].append(item)
+                } else if item.tipo == "Fondo" {
+                    self.items[1].append(item)
+                } else {
+                    self.items[2].append(item)
+                }
+            }
+            
+            self.tblPedido.reloadData()
+        })
     }
 
 }

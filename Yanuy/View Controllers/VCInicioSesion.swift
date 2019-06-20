@@ -69,7 +69,6 @@ class VCInicioSesion: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "inicioMozoSegue" {
             let siguienteVC = segue.destination as! VCInicioMozo
-            siguienteVC.usuario = sender as! Usuario
         }
         
     }

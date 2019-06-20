@@ -7,10 +7,12 @@ class VCConfirmarPedido: UIViewController {
     @IBOutlet weak var txtEntradas: UITextView!
     @IBOutlet weak var txtFondos: UITextView!
     @IBOutlet weak var txtPostres: UITextView!
+    @IBOutlet weak var txtTotal: UILabel!
     
     var entradas = ""
     var fondos = ""
     var postres = ""
+    var total = 0.0
     
     var pedido = Pedido() //Para realizar la consulta
     
@@ -22,20 +24,26 @@ class VCConfirmarPedido: UIViewController {
             contenido.nombre = (snapshot.value as! NSDictionary)["nombre"] as! String
             contenido.tipo = (snapshot.value as! NSDictionary)["tipo"] as! String
             contenido.cantidad = (snapshot.value as! NSDictionary)["cantidad"] as! Int
+            contenido.precio = (snapshot.value as! NSDictionary)["precio"] as! String
             contenido.id = snapshot.key
+            
+            let valor = Double(contenido.precio)! * Double(contenido.cantidad)
+            self.total += valor
             
             //Según el tipo, agregamos cada nombre en la variable correspondiente
             if contenido.tipo == "Entrada" {
-                self.entradas += "\(contenido.nombre) \(contenido.cantidad)\n"
+                self.entradas += "\(contenido.nombre) -> \(contenido.cantidad) = S/\(valor)\n"
             } else if contenido.tipo == "Fondo" {
-                self.fondos += "\(contenido.nombre) \(contenido.cantidad)\n"
+                self.fondos   += "\(contenido.nombre) -> \(contenido.cantidad) = S/\(valor)\n"
             } else {
-                self.postres += "\(contenido.nombre) \(contenido.cantidad)\n"
+                self.postres  += "\(contenido.nombre) -> \(contenido.cantidad) = S/\(valor)\n"
             }
             
             self.txtEntradas.text! = self.entradas
             self.txtFondos.text! = self.fondos
             self.txtPostres.text! = self.postres
+            
+            self.txtTotal.text! = "Total: S/\(self.total)"
         })
     }
     @IBAction func btnConfirmar(_ sender: Any) {
@@ -97,7 +105,7 @@ class VCConfirmarPedido: UIViewController {
                 let segundo = calendar.component(.second, from: fecha)
                 
                 let ref = Database.database().reference().child("pedidos").child(self.pedido.id)
-                ref.updateChildValues(["estado" : "pendiente", "nroMesa" : "\(nroMesa)", "fecha" : "\(año)/\(dia)/\(mes)", "hora" : "\(hora):\(minuto):\(segundo)"])
+                ref.updateChildValues(["estado" : "Pendiente", "nroMesa" : "\(nroMesa)", "fecha" : "\(año)/\(dia)/\(mes)", "hora" : "\(hora):\(minuto):\(segundo)", "total" : "\(self.total)"])
                 self.notificar()
                 
                 }))
@@ -112,7 +120,8 @@ class VCConfirmarPedido: UIViewController {
         let notificacion = UIAlertController(title: "¡HECHO!", message: "El pedido fue enviado al Chef con éxito.", preferredStyle: .alert)
         
         notificacion.addAction(UIAlertAction(title: "Entendido", style: .default, handler: {(UIAlertAction) in
-            self.navigationController?.popViewController(animated: true)
+            let controller = self.navigationController?.viewControllers[(self.navigationController?.viewControllers.count)! - 3]
+            self.navigationController?.popToViewController(controller!, animated: true)
         }))
         
         self.present(notificacion, animated: true, completion: nil)
